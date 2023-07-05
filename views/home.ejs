@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME CỦA HIẾN</title>
+</head>
+<body>
+<H1>HOME CỦA HIẾN</H1>
+<%=JSON.stringify(data)%>
+<button id="logout">LOGOUT</button>
+<button id="pagination">pagination</button>
+</body>
+
+<script>
+    // fetch("https://4b87-113-191-230-136.ngrok-free.app/home")
+    // .then(res=>res.json())
+    // .then(data=> console.log("abcbcbc",data))
+
+    document.getElementById("logout").onclick=(e)=>{
+        window.location.href="/logout"
+    }
+    document.getElementById("pagination").onclick=(e)=>{
+        window.location.href="/pagination"
+    }
+</script>
+</html>

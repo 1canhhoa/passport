@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href='stylesheets/login.css'>
+</head>
+<body>
+
+    <div class="container">
+        <form class="form">
+          <div class="row">
+            <h2 style="text-align:center">Login with Social Media or Manually</h2>
+            <div class="vl">
+              <span class="vl-innertext">or</span>
+            </div>
+      
+            <div class="col">
+              <a href="#" class="fb btn" id="fb">
+                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+              </a>
+              <a href="#" class="twitter btn">
+                <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+              </a>
+              <a href="#" class="google btn" id="gg">
+                <i class="fa fa-google fa-fw"></i> Login with Google+
+              </a>
+            </div>
+      
+            <div class="col">
+              <div class="hide-md-lg">
+                <p>Or sign in manually:</p>
+              </div>
+      
+              <input type="text" class="username" placeholder="Username" required>
+              <input type="password" class="password" placeholder="Password" required>
+              <input type="submit" class="submit" value="Login">
+            </div>
+      
+          </div>
+        </form>
+      </div>
+      
+      <div class="bottom-container">
+        <div class="row">
+          <div class="col">
+            <a href="#" style="color:white" id="logup" class="btn">Sign up</a>
+          </div>
+          <div class="col">
+            <a href="#" style="color:white" class="btn">Forgot password?</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img class="img">
+      </div>
+    
+</body>
+<!-- <script src="/javascripts/login.js"></script> -->
+<script>
+  let bien1,bien2
+  chatForm = document.querySelector("form")
+  chatForm.addEventListener("submit",(e)=>{
+    e.preventDefault()
+     bien1 = document.querySelector(".username").value
+     bien2 = document.querySelector(".password").value
+    login()
+  })
+
+
+function login(){
+  fetch("https://4b87-113-191-230-136.ngrok-free.app/userpass",{
+  method:"post",
+  body:JSON.stringify({
+    username:bien1,
+    password:bien2
+  }),
+  headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+  }
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log(data.message)
+    if(data.check==true) window.location.href="/home"
+  })
+}
+document.getElementById("fb").onclick = (e)=>{
+  window.location.href = "/auth/facebook"
+}
+document.getElementById("gg").onclick =(e)=>{
+  window.location.href="/auth/google"
+}
+
+
+document.getElementById("logup").onclick =(e)=>{
+        window.location.href="/logup"
+    }
+</script>
+
+</html>
