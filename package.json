@@ -2,15 +2,14 @@
   "name": "passport",
   "version": "0.0.0",
   "private": true,
-
-  "emgines":{
-    "node":"14.x"
+  "engines": {
+    "node": "14.x"
   },
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
-
   "dependencies": {
+    "@vercel/node": "^2.15.3",
     "bcryptjs": "^2.4.3",
     "connect-redis": "^7.1.0",
     "cookie-parser": "~1.4.4",
