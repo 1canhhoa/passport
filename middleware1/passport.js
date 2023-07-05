@@ -34,7 +34,7 @@ const GoogleStrategy = require('passport-google-oauth20');
 passport.use(new GoogleStrategy({
     clientID: "681318167280-mm8sklcrdrqtj8n57dlfp0jsa8qmm9og.apps.googleusercontent.com",
     clientSecret: "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",
-    callbackURL: 'https://4b87-113-191-230-136.ngrok-free.app/auth/google/callback',
+    callbackURL: 'https://93c9-2001-ee0-49da-e830-f443-860-bc5d-b08b.ngrok-free.app/auth/google/callback',
     scope: [ 'profile' ],
     state: true
   },
@@ -56,7 +56,7 @@ const FacebookStrategy = require("passport-facebook").Strategy
 passport.use(new FacebookStrategy({
     clientID: "984636182672876", // connect đến app trên developer.facebook.com
     clientSecret:"026e5f638bbfad8929f4becad82cc6b6",
-    callbackURL: "https://4b87-113-191-230-136.ngrok-free.app/auth/facebook/callback",
+    callbackURL: "https://93c9-2001-ee0-49da-e830-f443-860-bc5d-b08b.ngrok-free.app/auth/facebook/callback",
     profileFields:["name","photos","displayName","emails","gender","profileUrl"]
   },
   async(accessToken, refreshToken, profile, cb) => {
