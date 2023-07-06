@@ -28,7 +28,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,// tạo ra connect.sid
   cookie: { 
-    secure: false,        // cần https để đẩy cookie về server,
+    secure: true,        // cần https để đẩy cookie về server,
     maxAge: 5*60*1000          //5giay reset
   }
   // store:new RedisStore({client:client})
