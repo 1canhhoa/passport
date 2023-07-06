@@ -31,7 +31,7 @@ app.use(session({
     secure: false,        // cần https để đẩy cookie về server,
     maxAge: 5*60*1000          //5giay reset
   },
-  store:new RedisStore({host:"https://4b87-113-191-230-136.ngrok-free.app",client:client})
+  store:new RedisStore({client:client})
 }))
 
 
