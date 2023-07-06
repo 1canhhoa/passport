@@ -14,11 +14,11 @@ var app = express();mongodb();
 
 
 
-const redis = require("ioredis")
-const RedisStore = require("connect-redis").default;
-const client = redis.createClient({legacyMode: true})
-client.on('connected',()   =>   console.log('connected to redis successfully!'))
-client.on('error', (err) => console.log('Could not establish a connection with redis', err));
+// const redis = require("ioredis")
+// const RedisStore = require("connect-redis").default;
+// const client = redis.createClient({legacyMode: true})
+// client.on('connected',()   =>   console.log('connected to redis successfully!'))
+// client.on('error', (err) => console.log('Could not establish a connection with redis', err));
 
 
 
@@ -30,8 +30,8 @@ app.use(session({
   cookie: { 
     secure: false,        // cần https để đẩy cookie về server,
     maxAge: 5*60*1000          //5giay reset
-  },
-  store:new RedisStore({client:client})
+  }
+  // store:new RedisStore({client:client})
 }))
 
 
