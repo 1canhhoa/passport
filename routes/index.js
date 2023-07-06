@@ -21,7 +21,7 @@ router.get('/auth/facebook/callback',
     .then(data =>{
         if(data){
           console.log(data,"taikhoan đã có trong csdl")
-          return res.redirect("/home")
+          return res.redirect("/")
         }
         else{
           MyAuthen.create({
@@ -37,10 +37,6 @@ router.get('/auth/facebook/callback',
     .catch(err=>next(err))
   });
   // ----------------------------------------------------------------------------------------
-  router.get('/logup', function(req, res, next) {
-    // req.session.destroy();
-    res.render('logup.ejs');
-  });
   router.get('/', function(req, res, next) {
     console.log("req.session",req.session)
     res.render("home.ejs",{data:req.session})
@@ -70,7 +66,7 @@ router.get('/auth/facebook/callback',
     .then(data=>{
       if(data){
         console.log("người dùng đã tồn tại trong csdl mời đăng nhập")
-        res.redirect("/home")
+        res.redirect("/")
       }else{
         MyAuthen.create({
           idSocial: req.user._id,

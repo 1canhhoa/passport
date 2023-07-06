@@ -85,7 +85,7 @@ function login(){
   .then(res=>res.json())
   .then(data=>{
     console.log(data.message)
-    if(data.check==true) window.location.href="/home"
+    if(data.check==true) window.location.href="/"
   })
 }
 document.getElementById("fb").onclick = (e)=>{
