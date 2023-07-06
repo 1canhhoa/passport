@@ -4,6 +4,7 @@ require ('../middleware1/passport')
 const jwt = require("jsonwebtoken")
 const homeController = require("../controller/homeController");
 const {MyAuthen} = require('../models/authentication');
+const { copyFileSync } = require('fs');
 var router = express.Router();
 
 
@@ -36,18 +37,18 @@ router.get('/auth/facebook/callback',
     .catch(err=>next(err))
   });
   // ----------------------------------------------------------------------------------------
-  router.get('/', function(req, res, next) {
+  router.get('/logup', function(req, res, next) {
     // req.session.destroy();
     res.render('logup.ejs');
   });
-  router.get('/home', function(req, res, next) {
-    if(!req.user) {return res.redirect("/login")}
+  router.get('/', function(req, res, next) {
     console.log("req.session",req.session)
     res.render("home.ejs",{data:req.session})
   });
   router.get('/logup', function(req, res, next) {
     res.render('logup.ejs');
   });
+
   router.get("/login",(req,res)=>res.render("login.ejs"))
   router.get("/logout",(req,res)=>{
     req.session.destroy(),
@@ -96,5 +97,9 @@ router.post("/userpass", passport.authenticate("local"),(req,res)=>{
   })
 })
 
+router.get('/webcrawler', function(req, res, next) {
+  if(!req.user) {return res.render("login.ejs")}
+  res.render('webcrawler.ejs');
+});
 
 module.exports = router;
