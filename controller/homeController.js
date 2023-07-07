@@ -3,7 +3,7 @@ const {MyAuthen} = require("../models/authentication")
 const bcrypt = require("bcryptjs")
 
 let getData =async (req,res) =>{
-    await myauthen.MyAuthen.find({})
+    await MyAuthen.find({})
     .then(data=>{res.json(data),console.log("data",data)})
     .catch(err=>res.json(err))
 }

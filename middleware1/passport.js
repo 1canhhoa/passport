@@ -19,7 +19,7 @@ passport.use(new LocalStrategy({
   async(username, password, done)=> {
     let user = await MyAuthen.findOne({ username: username }) 
       if (!user) { return done(null,{message:"username ko chinh xac"}); }
-      const valid = await bcrypt.compare(password,user.password)
+      const valid = bcrypt.compare(password, user.password)
       if (!valid) { return done(null, {message:"mật khẩu ko chính xác"}); }
       return done(null, user);
   }
