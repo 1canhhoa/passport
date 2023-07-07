@@ -6,7 +6,8 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "redis": "redis-server"
   },
   "dependencies": {
     "@vercel/node": "^2.15.3",
